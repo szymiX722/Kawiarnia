@@ -1,0 +1,457 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FCEBC5;
+}
+
+.nawigacja {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 15px 0;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.nawigacja.scroll {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nawigacja a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.nawigacja a:hover {
+    color: rgb(27, 27, 80);
+}
+
+/* --- STYLE DLA SLIDERA (KARUZELI) ZDJĘĆ SALI --- */
+
+.sekcja-slider {
+    /* Ustawienia obrazu tła */
+    background-image: url('sala2.jpeg'); /* <= Zmień na ścieżkę do Twojego zdjęcia tła sali */
+    background-size: cover; 
+    background-attachment: fixed; /* Tło pozostaje nieruchome podczas scrollowania (opcjonalnie) */
+    background-position: center; 
+    position: relative; /* Ważne dla pozycjonowania pseudoelementu ::before */
+    
+    padding: 100px 0 150px 0;
+}
+
+.sekcja-slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* KLUCZOWE: 80% czerni, tło widoczne w 20% */
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: 0; /* Umieszcza overlay pod sliderem (który musi mieć z-index > 0) */
+}
+
+/* Główny kontener slidera */
+.slider-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    
+    /* Dodajemy padding, który jest równy połowie cienia + bufor */
+    /* Zmiana height na to: */
+    height: 500px; /* Przywracamy bazową wysokość slajdu */
+    
+    /* KLUCZOWA ZMIANA: Wewnętrzny bufor dla cienia i powiększenia */
+    padding: 30px 0; /* Daje 30px miejsca na górze i 30px na dole */
+
+    z-index: 1; 
+}
+
+/* Wewnętrzny kontener, który będzie animowany */
+.slider-sala {
+    display: flex;
+    height: 100%;
+    width: fit-content; /* Szerokość musi być wystarczająca dla wszystkich slajdów obok siebie */
+    transition: transform 0.5s ease-in-out; 
+    /* KLUCZOWE: Wyrównanie w centrum, aby połowy zdjęć były widoczne */
+    align-items: center; 
+}
+
+/* Pojedynczy slajd */
+.slide {
+    min-width: 33.333%; 
+    height: 100%;
+    flex-shrink: 0;
+    margin: 0 2%; 
+    
+    /* ZAKTUALIZOWANO: Cień w dół i na prawo */
+    /* Składnia: cień X Y Rozmycie Rozprzestrzenienie Kolor */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+    
+    border-radius: 8px; 
+    overflow: hidden; 
+    transform: scale(0.9);
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Strzałki nawigacyjne */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 5;
+    transition: background 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px; /* Strzałka przy krawędzi ciemnego tła */
+    z-index: 10;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.next-btn {
+    right: 10px; /* Strzałka przy krawędzi ciemnego tła */
+    z-index: 10;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.slide.active {
+    transform: scale(1.0); 
+    /* ZAKTUALIZOWANO: Silniejszy cień dla aktywnego slajdu */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7); 
+}
+
+/* Style dla sekcji opisowej pod sliderem */
+/* --- STYLE DLA SEKCJI OPISU SALI (POD SLIDEREM) --- */
+
+.opis-sali {
+    /* Ustawienia kontenera, aby pasował do poprzednich sekcji */
+    max-width: 900px;
+    margin: 30px auto 60px auto; /* Centrowanie i odstęp od dołu strony */
+    text-align: center;
+    padding: 0 20px;
+}
+
+.opis-sali h1 {
+    font-size: 32px;
+    color: #000000; 
+    /* KLUCZOWA ZMIANA: Mniejszy margines dolny pod h1 */
+}
+
+.opis-content {
+    /* Ustawiamy na center, ponieważ h2 jest centrowany, a p też jest blisko centrum */
+    text-align: center; 
+    line-height: 1.6;
+    font-size: 17px;
+    color: #000000; 
+}
+
+/* Wyrównanie akapitów do centrum, by pasowały do reszty tekstu */
+.opis-content p {
+    margin: 0 auto 20px auto;
+    max-width: 700px; /* Dodatkowe ograniczenie, by tekst nie był zbyt szeroki */
+    text-align: center;
+}
+
+.opis-sali h2 {
+    font-size: 24px;
+    color: #000000; /* Ustawienie czarnej czcionki */
+    /* KLUCZOWA ZMIANA 3: Usunięcie szarej kreski */
+    border-bottom: none; 
+    padding-bottom: 0;
+    margin-top: 25px; 
+    margin-bottom: 15px;
+    text-align: center; /* Wyrównanie nagłówków h2 do środka (jak na zrzucie) */
+}
+
+
+.opis-content ul {
+    list-style-type: disc; 
+    /* KLUCZOWA ZMIANA 1: Ograniczamy szerokość listy do minimum potrzebnego */
+    max-width: 400px; 
+    
+    /* KLUCZOWA ZMIANA 2: Centrowanie kontenera listy wewnątrz .opis-content */
+    margin: 5px auto 30px auto; 
+    
+    /* Dodajemy wcięcie, aby punktor był widoczny */
+    padding-left: 20px; 
+}
+
+.opis-content li {
+    /* KLUCZOWA ZMIANA 3: Zerujemy niepotrzebny padding, aby kropka była bliżej tekstu */
+    padding: 3px 0; 
+    
+    /* Upewnienie się, że tekst wewnątrz li jest blisko kropki */
+    text-align: left; 
+    color: #000000; 
+}
+
+
+.opis-content {
+    text-align: center;
+    font-size: 19px;
+    margin-top: 40px;
+    padding: 15px;
+}
+
+.wycena {
+    /* KLUCZOWA ZMIANA 5: Usunięcie ramki i ustawienie na środku */
+    text-align: center; 
+    margin-top: 40px;
+    padding: 0; /* Usunięcie paddingu, by nie było tła */
+    background-color: transparent; /* Usunięcie szarego tła */
+    border-radius: 0;
+}
+
+.wycena h3 {
+    /* KLUCZOWA ZMIANA 5: Większa czcionka dla wyceny */
+    font-size: 22px; 
+    margin: 0; 
+    color: #000000; /* Ustawienie czarnej czcionki */
+    margin-bottom: 20px;
+}
+
+/* --- STYLE DLA SEKCJI FORMULARZA --- */
+
+.sekcja-formularza {
+    max-width: 600px; /* Ograniczenie szerokości formularza */
+    margin: 60px auto; 
+    padding: 0 20px 40px 20px;
+    text-align: center;
+}
+
+.sekcja-formularza h2 {
+    font-size: 30px;
+    color: #0c113d;
+    margin-bottom: 30px;
+}
+
+#salaFormularz {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Upewnia się, że padding nie zwiększa szerokości */
+    font-size: 16px;
+}
+
+/* Układ dla pól w jednym rzędzie */
+.row-fields {
+    display: flex;
+    gap: 20px;
+}
+
+.half-field {
+    width: 50%;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #0c113d; /* Kolor granatowy */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #3b4acd;
+}
+
+.klauzula {
+    font-size: 14px;
+    color: #555;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* --- STYLE DLA MODALNEGO OKNA --- */
+.modal {
+    display: none; /* Ukryte domyślnie */
+    position: fixed; /* Zawsze na wierzchu */
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Ciemne tło za oknem */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Wyśrodkowanie w pionie i poziomie */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+    color: #0c113d;
+    margin-top: 0;
+}
+
+#trescDoSkopiowania {
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ddd;
+    resize: none; /* Zablokowanie zmiany rozmiaru pola */
+    font-size: 14px;
+    font-family: monospace; /* Czcionka ułatwiająca czytanie kodu/tekstu */
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.copy-btn {
+    padding: 10px 20px;
+    background-color: #3b4acd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+    background-color: #0c113d;
+}
+
+.klauzula-modal {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.kontakt {
+    background-color: white; 
+    color: black;
+    /* ZMNIEJSZONY PADDING: Zmniejszono z 30px na 10px */
+    padding: 10px 10px; 
+    text-align: center;
+}
+
+/* KLUCZOWA ZMIANA: Zezwalamy elementom wewnątrz .info-group na centrowanie swojego tekstu */
+.kontakt-content .info-group {
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start;
+    /* Usunięto text-align: left;, by umożliwić centrowanie w kolumnach */
+}
+
+/* Styl dla każdej kolumny */
+.kontakt-info, .godziny {
+    width: 45%; 
+    padding: 0 20px;
+    /* DODANO: Wyrównanie tekstu wewnątrz kolumn do środka */
+    text-align: center; 
+}
+
+.kontakt h3 { /* Zmieniono .kontakt h2 na .kontakt h3 zgodnie z HTML */
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: black; /* Zmieniono na czarny, bo tło jest białe */
+    text-align: center;
+}
+
+.kontakt p {
+    font-size: 17px; /* Lekko zmniejszyłem rozmiar */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Stylizacja linków w sekcji kontaktowej (numer telefonu/email) */
+.kontakt a {
+    color: #171c49; 
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: bold; /* Dodałem pogrubienie dla lepszej widoczności */
+}
+
+.kontakt a:hover {
+    color: #3b4acd;
+    text-decoration: underline;
+}
+/* Usunięto regułę .godziny h3, bo teraz używamy .kontakt h3 */
+
+
+@media (max-width: 768px) {
+    .kontakt-content .info-group {
+        flex-direction: column; 
+        text-align: center;
+    }
+    
+    .kontakt-info, .godziny {
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .kontakt h3 {
+        margin-top: 20px;
+    }
+}

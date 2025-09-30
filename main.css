@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.nawigacja {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 15px 0;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.nawigacja.scroll {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nawigacja a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.nawigacja a:hover {
+    color: rgb(27, 27, 80);
+}
+
+.sekcja-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('IMG_8813.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.sekcja-hero .przyciemnienie {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.70);
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie w poziomie */
+    align-items: center; /* Wyśrodkowanie w pionie */
+}
+
+.logo {
+    width: 350px;
+    height: 350px;
+    border: 4px solid white;
+    border-radius: 50%;
+    background-image: url('logo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.opis {
+    position: relative;
+    margin-top: -150px;
+    
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    font-size: 18px;
+    color: black;
+    padding: 70px;
+    box-sizing: border-box;
+    background-color: #FCEBC5;
+}
+
+.opis-srodek {
+    width: 730px;
+    margin: 0 340px;
+}
+
+.opis h3 {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.opis ul {
+    list-style-type: " ● ";
+}
+
+.opis li {
+    margin-bottom: 8px;
+}
+
+.lewy-bok {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100%;
+    background-image: url('zew1.JPG');
+    background-repeat: no-repeat;
+    background-position: 65% 30%;
+    background-size: cover;
+}
+
+.prawy-bok {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 320px;
+    height: 100%;
+    background-image: url('zew2.JPG');
+    background-repeat: no-repeat;
+    background-position: 58% 30%;
+    background-size: cover; 
+}
+
+.kontakt {
+    background-color: white; 
+    color: black;
+    /* ZMNIEJSZONY PADDING: Zmniejszono z 30px na 10px */
+    padding: 10px 10px; 
+    text-align: center;
+}
+
+/* KLUCZOWA ZMIANA: Zezwalamy elementom wewnątrz .info-group na centrowanie swojego tekstu */
+.kontakt-content .info-group {
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start;
+    /* Usunięto text-align: left;, by umożliwić centrowanie w kolumnach */
+}
+
+/* Styl dla każdej kolumny */
+.kontakt-info, .godziny {
+    width: 45%; 
+    padding: 0 20px;
+    /* DODANO: Wyrównanie tekstu wewnątrz kolumn do środka */
+    text-align: center; 
+}
+
+.kontakt h3 { /* Zmieniono .kontakt h2 na .kontakt h3 zgodnie z HTML */
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: black; /* Zmieniono na czarny, bo tło jest białe */
+    text-align: center;
+}
+
+.kontakt p {
+    font-size: 17px; /* Lekko zmniejszyłem rozmiar */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Stylizacja linków w sekcji kontaktowej (numer telefonu/email) */
+.kontakt a {
+    color: #171c49; 
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: bold; /* Dodałem pogrubienie dla lepszej widoczności */
+}
+
+.kontakt a:hover {
+    color: #3b4acd;
+    text-decoration: underline;
+}
+/* Usunięto regułę .godziny h3, bo teraz używamy .kontakt h3 */
+
+
+@media (max-width: 768px) {
+    .kontakt-content .info-group {
+        flex-direction: column; 
+        text-align: center;
+    }
+    
+    .kontakt-info, .godziny {
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .kontakt h3 {
+        margin-top: 20px;
+    }
+}
