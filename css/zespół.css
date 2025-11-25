@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FCEBC5;
+}
+
+.nawigacja {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.nawigacja.scroll {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nawigacja a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.nawigacja a:hover {
+    color: rgb(27, 27, 80);
+}
+
+.galeria-zespolu {
+    padding: 80px 20px 60px 20px; /* Duzy gorny padding bo fixed sie rozpierdala */
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+.galeria-zespolu h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: #0c113d;
+}
+
+.element-zespolu {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden; 
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+.element-zespolu:hover {
+    transform: translateY(-5px);
+}
+
+.element-zespolu img {
+    width: 100%;
+    
+    aspect-ratio: 1 / 1; 
+    
+    object-fit: cover; 
+}
+
+.kontakt {
+    background-color: white; 
+    color: black;
+    padding: 10px 10px; 
+    text-align: center;
+}
+
+.kontakt-content .info-group {
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start;
+}
+
+.kontakt-info, .godziny {
+    width: 45%; 
+    padding: 0 20px;
+    text-align: center; 
+}
+
+.kontakt h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: black;
+    text-align: center;
+}
+
+.kontakt p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.kontakt a {
+    color: #171c49; 
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: bold;
+}
+
+.kontakt a:hover {
+    color: #3b4acd;
+    text-decoration: underline;
+}

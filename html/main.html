@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe Arkady</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div class="nawigacja">
+        <a href="main.html">GŁÓWNA</a>
+        <a href="menu.html">MENU</a>
+        <a href="sezon.html">SEZONOWE</a>
+        <a href="zespół.html">ZESPÓŁ</a>
+        <a href="ciasta.html">CIASTA</a>
+        <a href="torty.html">TORTY</a>
+        <a href="sala.html">SALA</a>
+        <a href="mieszkania.html">MIESZKANIA</a>
+    </div>
+
+    <div class="sekcja-hero">
+        <div class="przyciemnienie">
+            <div class="logo"></div>
+        </div>
+    </div>
+
+    <div class="opis">
+        <div class="lewy-bok"></div>
+        <div class="opis-srodek">
+            <p>
+                Odkryj miejsce, gdzie czas zwalnia, a kawa smakuje wyjątkowo.<br><br>
+                W naszej przytulnej kawiarni czekają na Ciebie aromatyczne napoje przygotowywane przez doświadczonych baristów, 
+                wypieki prosto z serca i lody od Dutkiewicz - lody autorskie.<br><br>
+                To idealne miejsce na spotkania z przyjaciółmi, rodziną, pracę w przyjemnej atmosferze, czy chwilę relaksu z ulubioną książką.
+            </p>
+
+            <h3>☕ Co oferujemy?</h3>
+            <ul>
+                <li>Kawę z wyselekcjonowanych ziaren z całego świata</li>
+                <li>Matchę wysokiej jakości</li>
+                <li>Świeżo wypiekane ciasta, babeczki i gofry</li>
+                <li>Desery lodowe</li>
+                <li>Herbaty, smoothie, shake’i, lemoniady</li>
+                <li>Opcje wegańskie, bezglutenowe i keto</li>
+                <li>Torty okolicznościowe</li>
+                <li>Koktajle bezalkoholowe i alkoholowe</li>
+                <li>Wynajem sali okolicznościowej</li>
+                <li>Wynajem mieszkań (krótkoterminowy)</li>
+            </ul>
+        </div>
+        <div class="prawy-bok"></div>
+    </div>
+
+    <div class="sekcja-nowosci">
+    <h2>✨ Nasze Nowości ✨</h2>
+        <div class="nowosci-galeria">
+            <div class="nowosc-item" data-gallery-id="nowosc1">
+                <img src="../img/IMG_6303.JPG" alt="Nowy deser w menu" class="nowosc-zdjecie" onclick="openModal('nowosc1', 0)">
+                <div class="nowosc-podpis">
+                    <p>Nasza oferta z ciastami na święta.</p>
+                    <span class="data-dodania">Dodano: 2025-11-25</span>
+                </div>
+            </div>
+
+            <!--<div class="nowosc-item" data-gallery-id="nowosc2">
+                <img src="../img/nowosc2.jpg" alt="Nowy wystrój sali" class="nowosc-zdjecie" onclick="openModal('nowosc2', 0)">
+                <div class="nowosc-podpis">
+                    <p>Wiosenna zmiana wystroju sali, więcej kwiatów i światła.</p>
+                    <span class="data-dodania">Dodano: 2025-11-25</span>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+    <div class="kontakt">
+        <div class="kontakt-content">
+            <div class="info-group">
+                <div class="kontakt-info">
+                    <h3>Kontakt</h3>
+                    <p>
+                        📧 Email: <a href="mailto:arkady.socialmedia@gmail.com">arkady.socialmedia@gmail.com</a><br>
+                        📍 Adres: ul. Zamehofa 44E, 72-010 Police
+                    </p>
+                </div>
+                <div class="godziny">
+                    <h3>Godziny Otwarcia</h3>
+                    <p>
+                        Poniedziałek - Czwartek: 10:00 - 19:00<br>
+                        Piątek: 10:00 - 20:00<br>
+                        Sobota - Niedziela: 9:00 - 20:00
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal-galeria" onclick="closeModalOnOuterClick(event)">
+        <div class="modal-content-galeria">
+            <span class="close-btn-galeria" onclick="closeModal()">&times;</span>
+        
+            <a class="prev-btn" onclick="changeSlide(-1)">&#10094;</a>
+        
+            <div id="modalImageContainer">
+                <img id="modalImage" src="" alt="Powiększone zdjęcie">
+                <p id="modalCaption"></p>
+            </div>
+        
+            <a class="next-btn" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

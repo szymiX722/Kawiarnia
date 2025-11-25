@@ -1,0 +1,271 @@
+<!--cale menu tortowe (scrollowany pdf)
+
+formularz
+rodzaj tortu
+biszkopt
+kremy
+dodatki
+klasyczny czy artystyczny
+miejsce opisowe-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe Arkady</title>
+    <link rel="stylesheet" href="../css/torty.css">
+</head>
+<body>
+    <div class="nawigacja">
+        <a href="main.html">GŁÓWNA</a>
+        <a href="menu.html">MENU</a>
+        <a href="sezon.html">SEZONOWE</a>
+        <a href="zespół.html">ZESPÓŁ</a>
+        <a href="ciasta.html">CIASTA</a>
+        <a href="torty.html">TORTY</a>
+        <a href="sala.html">SALA</a>
+        <a href="mieszkania.html">MIESZKANIA</a>
+    </div>
+
+    <div class="sekcja-menu-torty">
+        <img src="../img/torty/TORTOWE.jpg" alt="Menu tortowe" class="zdjecie-oferty">
+    </div>
+
+---
+        <h1 class="inspo">Inspiracje i Projekty</h1>
+
+    <div class="galeria-inspiracji galeria-zespolu">
+        
+        <div class="element-zespolu"><img src="../img/torty/t1.JPG" alt="Tort Urodzinowy Klasyczny"></div>
+        <div class="element-zespolu"><img src="../img/torty/t2.JPG" alt="Tort Artystyczny Weselny"></div>
+        <div class="element-zespolu"><img src="../img/torty/t3.JPG" alt="Tort Dziecięcy"></div>
+        <div class="element-zespolu"><img src="../img/torty/t4.JPG" alt="Tort Okolicznościowy"></div>        
+    </div>
+
+---
+
+<div class="sekcja-formularza-torty">
+    <h2>Zaprojektuj Swój Tort</h2>
+    
+    <form id="tortFormularz">
+        
+        <div class="form-group row-fields">
+            <div class="half-field">
+                <label for="waga">Waga Tortu (min. 1kg)*</label>
+                <input type="number" id="waga" name="waga" min="1" step="0.5" required placeholder="np. 2.5">
+            </div>
+            <div class="half-field">
+                <label for="smak">Smak Biszkoptu (samodzielny wpis)*</label>
+                <input type="text" id="smak" name="smak" required placeholder="np. Waniliowy, Czekoladowy, Red Velvet">
+            </div>
+        </div>
+
+        <div class="form-group row-fields">
+            <div class="half-field">
+                <label for="krem">Rodzaj Kremu (samodzielny wpis)*</label>
+                <input type="text" id="krem" name="krem" required placeholder="np. Mascarpone, Śmietankowy, Czekoladowy">
+            </div>
+            <div class="half-field">
+                <label for="dodatki">Dodatki (samodzielny wpis)</label>
+                <input type="text" id="dodatki" name="dodatki" placeholder="np. Owoce leśne, Chrupiąca beza, Likier">
+            </div>
+        </div>
+        
+        <div class="form-group typ-tortu">
+            <label>Styl Dekoracji*</label>
+            <div class="radio-group">
+                <input type="radio" id="zwykly" name="styl" value="Zwykły" required checked>
+                <label for="zwykly">Zwykły (Napis, proste rozety, owoce sezonowe)</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="artystyczny" name="styl" value="Artystyczny" required>
+                <label for="artystyczny">Artystyczny (Figurki, kwiaty jadalne, złożone projekty, masa cukrowa)</label>
+            </div>
+            <textarea id="opisArtystyczny" rows="3" placeholder="Opisz dokładnie, co ma się znaleźć na torcie (kolory, motyw, kształt...)" style="display:none; margin-top: 10px;"></textarea>
+        </div>
+        
+        <div class="form-group kalendarz-grupa">
+            <label>Wybierz Datę Odbioru*</label>
+            <div id="kalendarzTortu"></div>
+            <input type="hidden" id="wybranaData" name="data_odbioru" required>
+            <p class="data-info">Terminy oznaczone na czerwono są **zablokowane**.</p>
+        </div>
+        
+        <p class="podsumowanie-kwoty">Szacowana kwota: <strong id="szacowanaKwota">---</strong> zł</p>
+
+        <button type="submit" class="submit-btn">Wyślij Zapytanie o Wykonanie</button>
+    </form>
+    
+    <p class="klauzula">*Po kliknięciu przycisku otrzymasz wiadomość do skopiowania i wysłania.</p>
+</div>
+
+    <div class="kontakt">
+        <div class="kontakt-content">
+            <div class="info-group">
+                <div class="kontakt-info">
+                    <h3>Kontakt</h3>
+                    <p>
+                        📧 Email: <a href="mailto:arkady.socialmedia@gmail.com">arkady.socialmedia@gmail.com</a><br>
+                        📍 Adres: ul. Zamehofa 44E, 72-010 Police
+                    </p>
+                </div>
+                <div class="godziny">
+                    <h3>Godziny Otwarcia</h3>
+                    <p>
+                        Poniedziałek - Czwartek: 10:00 - 19:00<br>
+                        Piątek: 10:00 - 20:00<br>
+                        Sobota - Niedziela: 9:00 - 20:00
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const formularz = document.getElementById('tortFormularz');
+    const wagaInput = document.getElementById('waga');
+    const stylRadios = document.querySelectorAll('input[name="styl"]');
+    const opisArtystyczny = document.getElementById('opisArtystyczny');
+    const szacowanaKwota = document.getElementById('szacowanaKwota');
+    const kalendarzDiv = document.getElementById('kalendarzTortu');
+    const wybranaDataInput = document.getElementById('wybranaData');
+    
+    // STAŁE CENY I BAZA DAT
+    const CENA_ZWYKLY_KG = 100;
+    const CENA_ARTYSTYCZNY_KG = 150;
+    let zablokowaneDaty = [];
+
+    // --- FUNKCJE DODATKOWE FORMULARZA ---
+
+    // 1. Logika przełączania pola opisu artystycznego
+    stylRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            opisArtystyczny.style.display = (document.getElementById('artystyczny').checked) ? 'block' : 'none';
+            obliczSzacowanaKwota();
+        });
+    });
+
+    // 2. Logika obliczania kwoty
+    function obliczSzacowanaKwota() {
+        const waga = parseFloat(wagaInput.value) || 0;
+        const jestArtystyczny = document.getElementById('artystyczny').checked;
+        
+        if (waga === 0) {
+            szacowanaKwota.textContent = '---';
+            return;
+        }
+
+        let cenaJednostkowa = jestArtystyczny ? CENA_ARTYSTYCZNY_KG : CENA_ZWYKLY_KG;
+        let kwota = waga * cenaJednostkowa;
+
+        szacowanaKwota.textContent = kwota.toFixed(2);
+    }
+
+    wagaInput.addEventListener('input', obliczSzacowanaKwota);
+
+
+    // --- FUNKCJE KALENDARZA ---
+
+    // 3. Pobieranie zablokowanych dat
+    async function pobierzZablokowaneDaty() {
+        // W realnym projekcie: używasz Fetch API do pobrania pliku z serwera
+        try {
+            const response = await fetch('zablokowane_daty.json');
+            if (response.ok) {
+                const data = await response.json();
+                zablokowaneDaty = data.zablokowane;
+            }
+        } catch (error) {
+            console.error('Błąd ładowania zablokowanych dat. Używam pustej listy.');
+            // Jeśli plik nie istnieje, po prostu nic nie blokujemy.
+            zablokowaneDaty = []; 
+        }
+    }
+
+    // 4. Generowanie kalendarza (tylko bieżący i następny miesiąc)
+    function generujKalendarz() {
+        const dzisiaj = new Date();
+        const biezacyMiesiac = dzisiaj.getMonth();
+        const biezacyRok = dzisiaj.getFullYear();
+        
+        kalendarzDiv.innerHTML = ''; // Czyścimy
+
+        for (let m = 0; m < 2; m++) { // Generujemy 2 miesiące
+            const dataMiesiac = new Date(biezacyRok, biezacyMiesiac + m, 1);
+            const nazwaMiesiaca = dataMiesiac.toLocaleString('pl-PL', { month: 'long', year: 'numeric' });
+            
+            let html = `<div class="miesiac-kalendarz"><p class="nazwa-miesiaca">${nazwaMiesiaca}</p><div class="dni-tygodnia"><span>Pon</span><span>Wt</span><span>Śr</span><span>Czw</span><span>Pt</span><span>Sob</span><span>Ndz</span></div><div class="dni">`;
+            
+            // Wypychamy puste dni na początek
+            let pierwszyDzienMiesiaca = (dataMiesiac.getDay() + 6) % 7; // Ustawienie Poniedziałku jako 0
+            for (let i = 0; i < pierwszyDzienMiesiaca; i++) {
+                html += '<span></span>';
+            }
+
+            let dzien = 1;
+            while (new Date(biezacyRok, biezacyMiesiac + m, dzien).getMonth() === biezacyMiesiac + m) {
+                const dataPelna = new Date(biezacyRok, biezacyMiesiac + m, dzien);
+                const dataString = `${dataPelna.getFullYear()}-${String(dataPelna.getMonth() + 1).padStart(2, '0')}-${String(dzien).padStart(2, '0')}`;
+                
+                let klasa = 'dzien';
+                
+                // Blokowanie dat
+                if (zablokowaneDaty.includes(dataString)) {
+                    klasa += ' zablokowany';
+                }
+                if (dataPelna < dzisiaj) {
+                    klasa += ' nieaktywny';
+                }
+                
+                html += `<span class="${klasa}" data-data="${dataString}">${dzien}</span>`;
+                dzien++;
+            }
+            html += '</div></div>';
+            kalendarzDiv.innerHTML += html;
+        }
+        
+        dodajListeneryDoDni();
+    }
+
+    // 5. Obsługa kliknięć i stylizacja aktywnego dnia
+    function dodajListeneryDoDni() {
+        document.querySelectorAll('.dzien:not(.zablokowany):not(.nieaktywny)').forEach(dzienElement => {
+            dzienElement.addEventListener('click', function() {
+                document.querySelectorAll('.dzien.wybrany').forEach(el => el.classList.remove('wybrany'));
+                this.classList.add('wybrany');
+                wybranaDataInput.value = this.getAttribute('data-data');
+            });
+        });
+    }
+
+    // --- INICJALIZACJA I URUCHOMIENIE ---
+
+    // Stylizacja CSS dla kalendarza
+    const style = document.createElement('style');
+    style.textContent = `
+        .miesiac-kalendarz { margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; padding: 10px; }
+        .nazwa-miesiaca { text-align: center; font-weight: bold; margin-bottom: 10px; color: #0c113d; }
+        .dni-tygodnia, .dni { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
+        .dni-tygodnia span { font-weight: bold; color: #555; }
+        .dzien { padding: 8px 0; cursor: pointer; transition: background-color 0.2s; border-radius: 4px; }
+        .dzien:hover:not(.zablokowany):not(.nieaktywny) { background-color: #eee; }
+        .dzien.zablokowany { background-color: #fdd; color: #c00; text-decoration: line-through; cursor: not-allowed; }
+        .dzien.nieaktywny { color: #ccc; cursor: not-allowed; }
+        .dzien.wybrany { background-color: #0c113d; color: white; font-weight: bold; }
+    `;
+    document.head.appendChild(style);
+
+
+    // --- URUCHOMIENIE ---
+    (async function() {
+        await pobierzZablokowaneDaty();
+        generujKalendarz();
+        obliczSzacowanaKwota();
+    })();
+    
+    // ... (Logika modala do kopiowania musi być zaimportowana z sali.html lub powtórzona tutaj) ...
+    // Pamiętaj, aby nazwać modalne elementy tak samo, jak w pliku sala.html
+    // ...
+</script>
+
+</body>
+</html>

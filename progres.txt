@@ -1,0 +1,13 @@
+main //
+menu //
+sezon //
+team //
+ciasta
+torty
+sala 
+mieszkania //(under)
+
+MEDIA
+OPTYMALIZACJA LADOWANIA
+TELEFON
+GODZINY OTWARCIA

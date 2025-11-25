@@ -1,0 +1,68 @@
+logo opis na starcie
+
+na gorze nav
+       GLOWNA    MENU   TORTY                                                      
+  zdjecie kawiarni      cale menu tortowego zdjecie
+	    opis  		    kalendarz i godzina odbioru (min 3 dni)
+						mozliwosc admina (blok terminow)
+						
+						formularz z tortowego menu scroll
+						rodzaj tortu i ceny
+						powyzej 30 porcji wycena indywidualna i kontakt mailowy
+						biszkopt kremy dodatki
+						
+						opis z ozdobami (klasyczne napis i rozetty)
+						artystyczny (daje sie opis)
+						
+						platnosc
+						
+						
+		CIASTA   lista sklad i alergeny kcal
+		klasyczne i keto/bio itd.
+		
+		kalendarz
+		formularz  
+		ceny stale 160 i 170  /inne na babeczki
+		
+		wybiera sie ciasto i ilosc 
+		
+		platnosc
+		
+		
+		SALA
+		zdjecia sali       \
+		filmik moze dwa     galeria
+		zdjecia kolejne    /
+		
+		podstawowe info wycena indywidualna 25-30 osob
+		adres
+		
+		rodzaje imprez
+		okolicznosciowe tj. urodziny chrzty stypy komunie szkolenia
+		
+		zaopatrzenie klima projektor zastawa stolowa szklo (szklanki kieliszki) naglosnienie barek
+		osobna toaleta
+		
+		oferta  
+		catering slodki stol / slony stol (zdjecie)
+		kawa/herbata/napoje
+		alkohol do 20%
+		torty i ciasta
+		obsluga kelnerska
+		
+		formularz nazwa - zapytaj o ofertę (MAIL arkady.socialmedia@gmail.com)
+		mail klienta
+		data i rodzaj imprezy
+		pole opisowe co by chcial
+		
+		
+		ZESPOL (po MENU)
+		zdjecia z napojami i opisy
+		
+		W RAZIE EVENTU
+		formularz z opisem i formularzem 
+		
+		//MIESZKANIA wynajem
+		250 doba
+		220 od 3 dób
+		

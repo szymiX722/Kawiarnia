@@ -1,0 +1,404 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FCEBC5;
+}
+
+.nawigacja {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.nawigacja.scroll {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nawigacja a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.nawigacja a:hover {
+    color: rgb(27, 27, 80);
+}
+/* umyc naczynia odkurzyc ugotowac ryz*/
+
+.sekcja-slider {
+    /* Ustawienia obrazu */
+    background-image: url('../img/sala2.jpeg');
+    background-size: cover; 
+    background-attachment: fixed;
+    background-position: center; 
+    position: relative;
+    
+    padding: 100px 0 150px 0;
+}
+
+.sekcja-slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    z-index: 0;
+}
+
+.slider-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    
+    height: 500px;
+    
+    padding: 30px 0;
+
+    z-index: 1; 
+}
+
+.slider-sala {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    transition: transform 0.5s ease-in-out; 
+    align-items: center; 
+}
+
+/* Pojedynczy slajd */
+.slide {
+    min-width: 33.333%; 
+    height: 100%;
+    flex-shrink: 0;
+    margin: 0 2%; 
+    
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); 
+    
+    border-radius: 8px; 
+    overflow: hidden; 
+    transform: scale(0.9);
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 5;
+    transition: background 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+    z-index: 10;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.next-btn {
+    right: 10px;
+    z-index: 10;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.slide.active {
+    transform: scale(1.0); 
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7); 
+}
+
+
+.opis-sali {
+    max-width: 900px;
+    margin: 30px auto 60px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.opis-sali h1 {
+    font-size: 32px;
+    color: #000000; 
+}
+
+.opis-content {
+    text-align: center; 
+    line-height: 1.6;
+    font-size: 17px;
+    color: #000000; 
+}
+
+.opis-content p {
+    margin: 0 auto 20px auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+.opis-sali h2 {
+    font-size: 24px;
+    color: #000000;
+    border-bottom: none; 
+    padding-bottom: 0;
+    margin-top: 25px; 
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.opis-content ul {
+    list-style-type: disc; 
+    max-width: 400px; 
+    
+    margin: 5px auto 30px auto; 
+    
+    padding-left: 20px; 
+}
+
+.opis-content li {
+    padding: 3px 0; 
+    
+    text-align: left; 
+    color: #000000; 
+}
+
+
+.opis-content {
+    text-align: center;
+    font-size: 19px;
+    margin-top: 40px;
+    padding: 15px;
+}
+
+.wycena {
+    text-align: center; 
+    margin-top: 40px;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.wycena h3 {
+    font-size: 22px; 
+    margin: 0; 
+    color: #000000; /* Ustawienie czarnej czcionki no co ty??*/
+    margin-bottom: 20px;
+}
+
+
+.sekcja-formularza {
+    max-width: 600px; /* max 300-360 dla tabletow */
+    margin: 60px auto; 
+    padding: 0 20px 40px 20px;
+    text-align: center;
+}
+
+.sekcja-formularza h2 {
+    font-size: 30px;
+    color: #0c113d;
+    margin-bottom: 30px;
+}
+
+#salaFormularz {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.row-fields {
+    display: flex;
+    gap: 20px;
+}
+
+.half-field {
+    width: 50%;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #0c113d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #3b4acd;
+}
+
+.klauzula {
+    font-size: 14px;
+    color: #555;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Ciemne tlo za oknem */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+    color: #0c113d;
+    margin-top: 0;
+}
+
+#trescDoSkopiowania {
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ddd;
+    resize: none; /* Zablokowanie zmiany rozmiaru pola     co??????? */
+    font-size: 14px;
+    font-family: monospace;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.copy-btn {
+    padding: 10px 20px;
+    background-color: #3b4acd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+    background-color: #0c113d;
+}
+
+.klauzula-modal {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.kontakt {
+    background-color: white; 
+    color: black;
+    padding: 10px 10px; 
+    text-align: center;
+}
+
+.kontakt-content .info-group {
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start;
+}
+
+.kontakt-info, .godziny {
+    width: 45%; 
+    padding: 0 20px;
+    text-align: center; 
+}
+
+.kontakt h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: black; 
+    text-align: center;
+}
+
+.kontakt p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.kontakt a {
+    color: #171c49; 
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: bold;
+}
+
+.kontakt a:hover {
+    color: #3b4acd;
+    text-decoration: underline;
+}

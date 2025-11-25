@@ -1,0 +1,293 @@
+<!--zdjecia, filmiki
+podstawowe info (adres, max 25-30 osob, wycena indywidualna)
+rodzaje organizowanych imprez
+zaopatrzenie
+
+oferta
+catering (slodki i slony stol)
+kawa/herbata/napoje
+alkohol do 20%
+torty i ciasta
+obsluga kelnerska
+
+formularz (przycisk Zapytaj o oferte)
+mail klienta
+data i rodzaj imprezy
+pole opisowe-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe Arkady</title>
+    <link rel="stylesheet" href="../css/sala.css">
+</head>
+<body>
+    <div class="nawigacja">
+        <a href="main.html">GŁÓWNA</a>
+        <a href="menu.html">MENU</a>
+        <a href="sezon.html">SEZONOWE</a>
+        <a href="zespół.html">ZESPÓŁ</a>
+        <a href="ciasta.html">CIASTA</a>
+        <a href="torty.html">TORTY</a>
+        <a href="sala.html">SALA</a>
+        <a href="mieszkania.html">MIESZKANIA</a>
+    </div>
+<div class="sekcja-slider">
+<div class="slider-container">
+    <div class="slider-sala">
+        <div class="slide"><img src="../img/sala1.jpg" alt="Zdjęcie sali 1"></div>
+        <div class="slide"><img src="../img/sala2.jpeg" alt="Zdjęcie sali 2"></div>
+        <div class="slide"><img src="../img/sala3.jpeg" alt="Zdjęcie sali 3"></div>
+        <div class="slide"><img src="../img/sala4.jpeg" alt="Zdjęcie sali 4"></div>
+        </div>
+    </div>
+    </div>
+    <button class="prev-btn">❮</button>
+    <button class="next-btn">❯</button>
+    
+    <div class="dots-container">
+        </div>
+</div>
+
+<div class="opis-sali">
+    <h1>Wynajem Sali Okolicznościowej</h1>
+    
+    <div class="opis-content">
+        <p>Idealne miejsce na Twoje przyjęcie, spotkanie firmowe czy kameralną uroczystość. Organizujemy przeróżne imprezy okolicznościowe, m.in. urodziny, chrzty, 
+            stypy, komunie czy szkolenia. Sala pomieści maksymalnie 25 do 30 osób.</p>
+        
+        <h2>Wyposażenie</h2>
+        <ul>
+            <li>Klimatyzacja</li>
+            <li>Projektor</li>
+            <li>Nagłośnienie</li>
+            <li>Barek wraz z zastawą stołową i szkłem (kieliszki i szklanki)</li>
+            <li>Osobna toaleta</li>
+        </ul>
+        
+        <h2>Oferta Obejmuje</h2>
+        <ul>
+            <li>Stół słodki i słony</li>
+            <li>Kawę, herbatę i inne napoje</li>
+            <li>Alkohol do 20%</li>
+            <li>Torty i ciasta</li>
+            <li>Obsługę kelnerską</li>
+        </ul>
+        
+<div class="wycena">
+        <h3>Wycena i szczegóły ustalane są indywidualnie.</h3>
+    </div>
+    </div>
+</div>
+
+<div class="sekcja-formularza">
+    <h2>Zapytaj o Ofertę</h2>
+    
+    <form id="salaFormularz">
+        
+        <div class="form-group">
+            <label for="email">Twój Adres E-mail*</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group row-fields">
+            <div class="half-field">
+                <label for="data">Preferowana Data</label>
+                <input type="date" id="data" name="data">
+            </div>
+            <div class="half-field">
+                <label for="rodzaj">Rodzaj Imprezy</label>
+                <input type="text" id="rodzaj" name="rodzaj" placeholder="np. Urodziny, Chrzest, Szkolenie">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="opis">Szczegóły / Opis Zapytania*</label>
+            <textarea id="opis" name="opis" rows="6" required placeholder="Napisz, ile osób spodziewasz się, jaki masz budżet i inne kluczowe szczegóły..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Wyślij Zapytanie</button>
+    </form>
+    
+    <p class="klauzula">
+        Po kliknięciu "Wyślij Zapytanie" wyskoczy okienko z gotową wiadomością.<br>
+        Pamiętaj, aby ją wysłać!
+    </p>
+</div>
+
+    <div class="kontakt">
+        <div class="kontakt-content">
+            <div class="info-group">
+                <div class="kontakt-info">
+                    <h3>Kontakt</h3>
+                    <p>
+                        📧 Email: <a href="mailto:arkady.socialmedia@gmail.com">arkady.socialmedia@gmail.com</a><br>
+                        📍 Adres: ul. Zamehofa 44E, 72-010 Police
+                    </p>
+                </div>
+                <div class="godziny">
+                    <h3>Godziny Otwarcia</h3>
+                    <p>
+                        Poniedziałek - Czwartek: 10:00 - 19:00<br>
+                        Piątek: 10:00 - 20:00<br>
+                        Sobota - Niedziela: 9:00 - 20:00
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="modalWiadomosci" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Skopiuj i Wyślij Zapytanie</h2>
+        <p>Proszę, skopiuj poniższy tekst, otwórz swoją pocztę i wyślij do <strong id="modalEmailTarget"></strong>.</p>
+        
+        <textarea id="trescDoSkopiowania" rows="12" readonly></textarea>
+        
+        <button id="copyButton" class="copy-btn">Kopiuj Wiadomość</button>
+        <p class="klauzula-modal">Pamiętaj, aby wysłać e-mail z własnej skrzynki!</p>
+    </div>
+</div>
+
+<script>
+    const nawigacja = document.querySelector(".nawigacja");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            nawigacja.classList.add("scroll");
+        } else {
+            nawigacja.classList.remove("scroll");
+        }
+    });
+    //KUUUUUUUUUUUUUUUUUUUUUUUUURWAAAAAAAAA
+    const slider = document.querySelector(".slider-sala");
+    const slides = document.querySelectorAll(".slide");
+    const sliderContainer = document.querySelector(".slider-container");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    
+    if (slider && slides.length > 0) {
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function updateSlider() {
+            // Szerokość jednego slajdu (w pixelach)
+            const slideWidth = slides[0].offsetWidth; 
+            
+            // Rzeczywista szerokość kontenera widocznego (w pixelach)
+            const containerWidth = sliderContainer.offsetWidth; 
+
+            // Przesunięcie potrzebne, by dany slajd znalazł się na skrajnej lewej
+            const offset = currentIndex * (slideWidth + (containerWidth * 0.04)); // 0.04 to suma marginów (2% + 2%)
+            
+            // Korekta centrowania: Przesuń w lewo o połowę widocznego kontenera, 
+            // a następnie przesuń w prawo o połowę szerokości slajdu
+            const centerAdjustment = (containerWidth / 2) - (slideWidth / 2);
+            
+            // Całkowite przesunięcie
+            const finalTransform = offset - centerAdjustment;
+            
+            slider.style.transform = `translateX(${-finalTransform}px)`;
+
+            // Usuń klasę 'active' ze wszystkich i dodaj do aktualnego
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentIndex].classList.add('active');
+        }
+        
+        updateSlider();
+        window.addEventListener('resize', updateSlider); // Poprawka przy zmianie rozmiaru okna
+
+        nextBtn.addEventListener("click", () => {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateSlider();
+        });
+
+        prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlides - 1;
+            }
+            updateSlider();
+        });
+    }
+
+    //formularz
+        const form = document.getElementById('salaFormularz');
+    const emailTarget = 'arkady.socialmedia@gmail.com';
+
+    const modal = document.getElementById('modalWiadomosci');
+    const closeBtn = document.querySelector('.close-btn');
+    const copyBtn = document.getElementById('copyButton');
+    const trescArea = document.getElementById('trescDoSkopiowania');
+    const modalEmailTarget = document.getElementById('modalEmailTarget');
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    // Obsługa zamknięcia modala
+    closeBtn.onclick = closeModal;
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+    // Logika kopiowania
+    copyBtn.addEventListener('click', function() {
+        trescArea.select(); // Zaznaczenie tekstu
+        trescArea.setSelectionRange(0, 99999); // Dla urządzeń mobilnych
+        document.execCommand('copy'); // Wykonanie kopiowania
+        
+        // Wizualne potwierdzenie skopiowania
+        copyBtn.textContent = 'Skopiowano!';
+        setTimeout(() => {
+            copyBtn.textContent = 'Kopiuj Wiadomość';
+            closeModal(); // Możesz zamknąć modal po skopiowaniu
+        }, 1500);
+    });
+
+    // Główna funkcja formularza
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        const klientEmail = document.getElementById('email').value;
+        const data = document.getElementById('data').value;
+        const rodzaj = document.getElementById('rodzaj').value;
+        const opis = document.getElementById('opis').value;
+        
+        if (!klientEmail || !opis) {
+            alert('Proszę wypełnić pola E-mail i Szczegóły / Opis Zapytania.');
+            return;
+        }
+
+        // Treść wiadomości (bez kodowania, bo będzie w textarea)
+        let tresc = 'Temat: Zapytanie o Wynajem Sali - ' + (rodzaj || 'Brak Rodzaju') + '\n\n';
+        tresc += 'Dzień dobry, proszę o ofertę wynajmu Sali Okolicznościowej.\n\n';
+        tresc += 'Preferowana Data: ' + (data || 'Nie podano') + '\n';
+        tresc += 'Rodzaj Imprezy: ' + (rodzaj || 'Nie podano') + '\n';
+        tresc += 'Mój adres e-mail: ' + klientEmail + '\n\n';
+        tresc += 'Szczegóły Zapytania:\n' + opis;
+        tresc += '\n\n---------------------------------------------\n';
+        tresc += 'Wiadomość wygenerowana przez formularz Cafe Arkady.';
+        
+        // Ustawienie wartości w modalu
+        modalEmailTarget.textContent = emailTarget;
+        trescArea.value = tresc;
+        
+        // Wyświetlenie modala
+        modal.style.display = 'block';
+        
+        // Możesz zresetować formularz, by był gotowy na kolejne zapytanie
+        form.reset();
+    });
+
+</script>
+
+</body>
+</html>
